@@ -82,11 +82,16 @@ main {
 
 /* 5. La Pantalla Retro (Verde estilo Game Boy) */
 .pokemon-card {
-    background-color: #9bbc0f; /* Verde Game Boy */
+    background-color: #9bbc0f; /* Verde Game Boy base */
+    
+    background-image: 
+        linear-gradient(rgba(15, 56, 15, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 56, 15, 0.15) 1px, transparent 1px);
+    background-size: 4px 4px; 
     border: 4px solid #0f380f;
-    border-radius: 10px 10px 30px 10px; /* El clásico corte en diagonal abajo a la derecha */
+    border-radius: 10px 10px 30px 10px; 
     padding: 20px;
-    color: #0f380f; /* Texto verde súper oscuro */
+    color: #0f380f; 
     box-shadow: inset 4px 4px 5px rgba(0,0,0,0.2);
     display: flex;
     flex-direction: column;
@@ -96,8 +101,14 @@ main {
 .pokemon-card img {
     width: 150px;
     height: 150px;
-    image-rendering: pixelated; /* ¡CRÍTICO! Mantiene los píxeles cuadrados y nítidos */
-    background-color: #8bac0f; /* Fondo de la imagen un tono distinto */
+    image-rendering: pixelated; 
+    background-color: #8bac0f; 
+    
+    background-image: 
+        linear-gradient(rgba(15, 56, 15, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 56, 15, 0.15) 1px, transparent 1px);
+    background-size: 4px 4px;
+
     border: 4px solid #0f380f;
     border-radius: 5px;
     margin-bottom: 20px;
