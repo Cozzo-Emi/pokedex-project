@@ -2,18 +2,30 @@
 // PRESENTACIÓN (UI - DOM)
 
 
+// 1. Centralizar elementos del DOM
 const uiElements = {
     input: document.getElementById('searchInput'),
     button: document.getElementById('searchButton'),
     statusMessage: document.getElementById('statusMessage'),
-    pokemonContainer: document.getElementById('pokemonContainer')
+    pokemonContainer: document.getElementById('pokemonContainer'),
+    audioToggle: document.getElementById('audioToggle') // agrego botón
 };
 
-/**
+function updateAudioButton(isPlaying) {
+    if (isPlaying) {
+        uiElements.audioToggle.textContent = '🔊 Música On';
+        uiElements.audioToggle.style.backgroundColor = '#ffcc00'; 
+    } else {
+        uiElements.audioToggle.textContent = '🔇 Música Off';
+        uiElements.audioToggle.style.backgroundColor = '#8bac0f'; 
+    }
+}
+
+/*
  * Muestra un mensaje en pantalla (cargando, errores, etc.)
  */
 function showStatus(message, isError = false) {
-    // Escondemos la tarjeta del Pokémon por si había uno antes
+    // Esconde la tarjeta del Pokémon
     uiElements.pokemonContainer.classList.add('hidden');
     
     // Mostrar el mensaje

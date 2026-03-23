@@ -143,3 +143,22 @@ main {
     border: 3px solid #000;
     line-height: 1.5;
 }
+
+/* 7. Botón de Audio Manual */
+.audio-btn {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    padding: 8px 12px;
+    margin-bottom: 15px;
+    background-color: #8bac0f; /* Verde Game Boy apagado */
+    color: #0f380f;
+    border: 3px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: inset -2px -2px 0px rgba(0,0,0,0.3);
+    transition: background-color 0.2s;
+}
+
+.audio-btn:active {
+    box-shadow: inset 2px 2px 0px rgba(0,0,0,0.3);
+}

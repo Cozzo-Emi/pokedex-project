@@ -1,22 +1,29 @@
 
 // CONTROLADOR PRINCIPAL 
 
-// MÚSICA DE FONDO (REGLA DEL PRIMER CLIC)
-
+// ==========================================
+// MÚSICA DE FONDO (CONTROL MANUAL)
+// ==========================================
 const bgMusic = new Audio('assets/theme.mp3');
-bgMusic.loop = true;  // Que se repita infinitamente
-bgMusic.volume = 0.1; // Volumen muy bajito 
-function startMusic() {
-    if (bgMusic.paused) {
-        bgMusic.play().catch(error => {
-            console.log("El navegador aún no nos deja reproducir audio.");
-        });
+bgMusic.loop = true;  
+bgMusic.volume = 0.1; 
+
+let isMusicPlaying = false; // Variable para saber si está sonando o no
+
+function toggleMusic() {
+    if (isMusicPlaying) {
+        bgMusic.pause();
+        isMusicPlaying = false;
+    } else {
+        bgMusic.play().catch(error => console.log("Error al reproducir", error));
+        isMusicPlaying = true;
     }
+    // Le pedimos a ui.js que cambie el color y texto del botón
+    updateAudioButton(isMusicPlaying); 
 }
 
-//  El PRIMER clic o tecla en la página para saltar la restricción 
-document.body.addEventListener('click', startMusic, { once: true });
-document.body.addEventListener('keypress', startMusic, { once: true });
+// Escuchamos el clic explícito en el botón de audio
+uiElements.audioToggle.addEventListener('click', toggleMusic);
 
 
 // LÓGICA DE BÚSQUEDA
